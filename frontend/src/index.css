@@ -1,0 +1,382 @@
+:root {
+  /* Futuristic Tech Palette - Titanium & Cyber Cyan */
+  --text: #475569;
+  --text-secondary: #64748b;
+  --text-h: #0f172a;
+  --bg: #f3f4f6;
+  --bg-subtle: rgba(255, 255, 255, 0.7);
+  --border: rgba(0, 102, 255, 0.12);
+  --border-strong: rgba(0, 102, 255, 0.25);
+  --code-bg: #eef2ff;
+  --accent: #0066ff;
+  --accent-hover: #0052cc;
+  --accent-bg: rgba(0, 102, 255, 0.08);
+  --accent-border: rgba(0, 102, 255, 0.3);
+  --accent-gradient: linear-gradient(135deg, #0066ff 0%, #7c3aed 50%, #d946ef 100%);
+  --accent-glow: rgba(0, 102, 255, 0.35);
+  --social-bg: rgba(255, 255, 255, 0.8);
+  --shadow-sm: 0 2px 8px -2px rgba(0, 102, 255, 0.08);
+  --shadow-md: 0 8px 24px -4px rgba(0, 102, 255, 0.12);
+  --shadow-lg: 0 20px 40px -8px rgba(0, 102, 255, 0.2);
+
+  /* Typography - Modern Geometric & Mono */
+  --sans: 'Plus Jakarta Sans', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --heading: 'Space Grotesk', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  font: 16px/1.6 var(--sans);
+  letter-spacing: -0.015em;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+  }
+}
+
+/* Dark Mode - Deep Void Cyberpunk HUD Aesthetic */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #94a3b8;
+    --text-secondary: #64748b;
+    --text-h: #f8fafc;
+    --bg: #030712;
+    --bg-subtle: rgba(15, 23, 42, 0.65);
+    --border: rgba(0, 240, 255, 0.12);
+    --border-strong: rgba(0, 240, 255, 0.3);
+    --code-bg: rgba(15, 23, 42, 0.8);
+    --accent: #00f0ff;
+    --accent-hover: #7000ff;
+    --accent-bg: rgba(0, 240, 255, 0.08);
+    --accent-border: rgba(0, 240, 255, 0.3);
+    --accent-gradient: linear-gradient(135deg, #00f0ff 0%, #7000ff 50%, #ff007f 100%);
+    --accent-glow: rgba(0, 240, 255, 0.4);
+    --social-bg: rgba(15, 23, 42, 0.6);
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 10px 30px -10px rgba(0, 240, 255, 0.15);
+    --shadow-lg: 0 20px 50px -15px rgba(0, 240, 255, 0.25);
+  }
+}
+
+/* Ambient Futuristic Background Matrix Pattern */
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image: 
+    radial-gradient(circle at 50% 0%, var(--accent-bg) 0%, transparent 75%),
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  min-height: 100vh;
+  color: var(--text);
+}
+
+/* Glassmorphism Outer Shell */
+#root {
+  width: 1140px;
+  max-width: calc(100% - 48px);
+  margin: 24px auto;
+  text-align: left;
+  border: 1px solid var(--border-strong);
+  border-radius: 24px;
+  min-height: calc(100svh - 48px);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-subtle);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Futuristic Corner Glow Effect */
+#root::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent-gradient);
+  opacity: 0.8;
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4 {
+  font-family: var(--heading);
+  font-weight: 700;
+  color: var(--text-h);
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: 52px;
+  line-height: 1.05;
+  margin: 0 0 24px;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 12px var(--accent-glow));
+
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 0 0 16px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+
+h3 {
+  font-size: 18px;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 16px;
+  color: var(--text);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Sci-Fi Code Elements */
+code {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--code-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  font-weight: 500;
+  box-shadow: 0 0 10px var(--accent-bg);
+}
+
+pre {
+  font-family: var(--mono);
+  background: var(--code-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  padding: 24px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0 0 24px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3), var(--shadow-sm);
+  position: relative;
+}
+
+pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--text-h);
+  box-shadow: none;
+}
+
+/* Cybernetic Interactive Buttons */
+.button,
+button {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-subtle);
+  color: var(--text-h);
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: -0.01em;
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover,
+button:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.button:active,
+button:active {
+  transform: translateY(0);
+}
+
+/* Primary Neon Gradient Button */
+.button-primary {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 20px var(--accent-glow);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.button-primary:hover {
+  filter: brightness(1.2);
+  color: #ffffff;
+  box-shadow: 0 6px 28px var(--accent-glow);
+}
+
+/* Social Icon Tray */
+#social {
+  display: flex;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+#social .button {
+  background: var(--social-bg);
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 14px;
+  transition: all 250ms ease;
+}
+
+#social .button:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+/* Sci-Fi Counter/Status Badge with Pulse */
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px var(--accent-bg);
+  position: relative;
+}
+
+.counter::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Sleek Section Dividers */
+section {
+  padding: 56px 64px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+section:first-child {
+  padding-top: 72px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 32px 24px;
+  }
+  
+  section:first-child {
+    padding-top: 48px;
+  }
+  
+  #root {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-radius: 16px;
+    max-width: calc(100% - 24px);
+  }
+}
+
+/* Cyber Accent Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 200ms ease;
+  position: relative;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* Utilities */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+  margin: 32px 0;
+}
+
+.muted {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Modern Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

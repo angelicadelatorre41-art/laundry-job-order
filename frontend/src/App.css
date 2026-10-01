@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap');
+
+:root {
+  /* Fresh Futuristic Laundry Palette */
+  --bg-main: #060b19;
+  --bg-card: rgba(18, 28, 56, 0.65);
+  
+  /* Laundry Neon Accents */
+  --wash-cyan: #00f0ff;       /* Pure Wash Water */
+  --soap-pink: #ff389c;       /* Bubblegum Detergent */
+  --softener-purple: #a855f7; /* Lavender Softener */
+  --fresh-green: #00ffa3;     /* Clean & Dry Freshness */
+  --sun-yellow: #ffb700;      /* Warm Spin/Heat */
+  
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  
+  /* Bubbly Multi-Color Gradient */
+  --laundry-gradient: linear-gradient(135deg, #00f0ff 0%, #ff389c 45%, #a855f7 80%, #00ffa3 100%);
+  --bubble-glow: 0 0 25px rgba(0, 240, 255, 0.3);
+
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ambient Glowing Water & Bubble Background */
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg-main);
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(0, 240, 255, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 85% 60%, rgba(255, 56, 156, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Soapy Bubble Header */
+.header {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 32px 7%;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--laundry-gradient);
+}
+
+.header h1 {
+  margin: 0 0 6px;
+  font-family: var(--font-heading);
+  font-size: 34px;
+  background: var(--laundry-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  filter: drop-shadow(0 2px 10px rgba(0, 240, 255, 0.3));
+}
+
+.header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Container Layout */
+.container {
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 0 20px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+/* Holographic Soapy Cards & Panels */
+.stat-card,
+.panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Multi-Colored Accent Highlights for Stats Cards */
+.stat-card:nth-child(1) { border-top: 3px solid var(--wash-cyan); }
+.stat-card:nth-child(2) { border-top: 3px solid var(--soap-pink); }
+.stat-card:nth-child(3) { border-top: 3px solid var(--softener-purple); }
+.stat-card:nth-child(4) { border-top: 3px solid var(--fresh-green); }
+
+.stat-card:nth-child(1) h2 { color: var(--wash-cyan); text-shadow: 0 0 12px rgba(0, 240, 255, 0.4); }
+.stat-card:nth-child(2) h2 { color: var(--soap-pink); text-shadow: 0 0 12px rgba(255, 56, 156, 0.4); }
+.stat-card:nth-child(3) h2 { color: var(--softener-purple); text-shadow: 0 0 12px rgba(168, 85, 247, 0.4); }
+.stat-card:nth-child(4) h2 { color: var(--fresh-green); text-shadow: 0 0 12px rgba(0, 255, 163, 0.4); }
+
+.stat-card:hover,
+.panel:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 12px 35px rgba(0, 240, 255, 0.15);
+}
+
+.stat-card span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
+}
+
+.stat-card h2 {
+  font-family: var(--font-heading);
+  font-size: 38px;
+  margin: 10px 0 0;
+}
+
+.panel {
+  margin-bottom: 28px;
+}
+
+.panel h2 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Sci-fi Form Controls */
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: var(--font-sans);
+  background: rgba(6, 11, 25, 0.7);
+  color: var(--text-primary);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--soap-pink);
+  box-shadow: 0 0 18px rgba(255, 56, 156, 0.35), inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: rgba(6, 11, 25, 0.9);
+}
+
+select option {
+  background: #0d1527;
+  color: var(--text-primary);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* Glowing Laundry Tech Buttons */
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary {
+  background: var(--laundry-gradient);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(255, 56, 156, 0.35);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.primary:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 6px 28px rgba(0, 240, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+}
+
+.secondary:hover {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: var(--wash-cyan);
+  color: var(--wash-cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+}
+
+/* Colorful Alert Messages */
+.error,
+.success {
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+}
+
+.error {
+  color: #ff4d6d;
+  background: rgba(255, 77, 109, 0.12);
+  border: 1px solid rgba(255, 77, 109, 0.35);
+  box-shadow: 0 0 20px rgba(255, 77, 109, 0.2);
+}
+
+.success {
+  color: var(--fresh-green);
+  background: rgba(0, 255, 163, 0.12);
+  border: 1px solid rgba(0, 255, 163, 0.35);
+  box-shadow: 0 0 20px rgba(0, 255, 163, 0.2);
+}
+
+/* Futuristic Data Table */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 16px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 14px;
+}
+
+th {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+}
+
+tr:hover td {
+  background: rgba(255, 56, 156, 0.04);
+}
+
+/* Laundry State Badges (Basket / Washing / Fresh Dry) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* In Laundry Basket (Pending) */
+.pending {
+  background: rgba(255, 183, 0, 0.12);
+  color: var(--sun-yellow);
+  border: 1px solid rgba(255, 183, 0, 0.35);
+  box-shadow: 0 0 12px rgba(255, 183, 0, 0.2);
+}
+
+/* In Wash Cycle / Spinning (Processing) */
+.processing {
+  background: rgba(0, 240, 255, 0.12);
+  color: var(--wash-cyan);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  animation: pulse-wash 2s infinite ease-in-out;
+}
+
+@keyframes pulse-wash {
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 240, 255, 0.2); }
+  50% { box-shadow: 0 0 22px rgba(0, 240, 255, 0.5); }
+}
+
+/* Clean & Freshly Folded (Completed) */
+.completed {
+  background: rgba(0, 255, 163, 0.12);
+  color: var(--fresh-green);
+  border: 1px solid rgba(0, 255, 163, 0.35);
+  box-shadow: 0 0 12px rgba(0, 255, 163, 0.2);
+}
+
+/* Row Action Buttons */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.edit:hover {
+  background: rgba(168, 85, 247, 0.3);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+}
+
+.delete {
+  background: rgba(255, 56, 156, 0.15);
+  color: var(--soap-pink);
+  border: 1px solid rgba(255, 56, 156, 0.3);
+}
+
+.delete:hover {
+  background: rgba(255, 56, 156, 0.3);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 56, 156, 0.4);
+}
+
+.empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: 40px;
+}
+
+/* Responsive Overrides */
+@media (max-width: 700px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    padding: 24px 20px;
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+}
